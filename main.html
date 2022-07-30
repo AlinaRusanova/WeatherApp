@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles/form.css" />
+    <link rel="stylesheet" href="styles/weather.css" />
+    <link rel="stylesheet" href="styles/forecast.css" />
+    <link rel="stylesheet" href="styles/searching.css" />
+
+    <title>WeatherApp</title>
+</head>
+
+<body>
+    <div class="App">
+        <div class="container">
+            <div class="Temperature">
+                <div class="Search">
+                    <form id="city-search-form">
+                        <div class="row">
+                            <div class="col-10 mt-4 mx-2"><input type="text" class="form-control form-control-sm"
+                                    id="cityInput" placeholder="Enter your city here..." autocomplete="off" required="">
+                            </div>
+                            <div class="col-1 mt-4 mx-2"><button type="submit" class="btn btn-outline-secondary"
+                                    id="citySearching" value="Search"><i class="fas fa-search"
+                                        aria-hidden="true"></i></button></div>
+
+                            <div class="col-1 mt-4 mx-2"><button type="submit" class="btn btn-outline-secondary"
+                                    id="citySearchingMap" value="Search"><i class="fas fa-search-Map"
+                                        aria-hidden="true"></i></button></div>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="weather-forecast">
+                    <div class="TemperatureInfo">
+                        <div class="main-card my-4">
+                            <div class="card-body py-0">
+                                <h2 class="card-title pt-3" id="cur-city"></h2>
+                                <h6 class="card-subtitle mb-4">
+                                    <div id="cur-date"></div>
+                                </h6><img id="main_icon"
+                                    src="https://free-png.ru/wp-content/uploads/2021/12/free-png.ru-110.png" width="125"
+                                    height="125"></img>
+
+                                <br>
+                                <div class="main-card-degree">
+                                    <div class="TemperatureDegree"><span class="temperature" id="mainTemp"></span> <a
+                                            href="#" class="unitActive" id="celsius-link">°C</a><span class="unit">
+                                            |</span>
+                                        <a href="#" class="unit" id="fahrenheit-link">°F</a>
+                                    </div>
+                                </div>
+
+
+
+                                <h6 class="max-and-min-temperatures"><i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                    ↑ High: <span class="current-max-temperature" id="current-max-temperature"><strong>
+                                        </strong></span>°<strong> |</strong><i class="fas fa-arrow-down"
+                                        aria-hidden="true"></i> ↓ Low: <span class="current-min-temperature"
+                                        id="current-min-temperature"><strong>
+                                        </strong></span>°</h6>
+
+
+
+                            </div>
+
+
+                            <div class="main-card-text">
+                                <div class="row">
+                                    <div class="col px-1 mx-2">
+                                        <div class="WDescription"><br>Humidity:
+                                            <span id="humidity"></span>%<br>Wind: <span id="wind"></span> m/s
+                                        </div>
+                                    </div>
+                                    <div class="col px-0 mx-2">
+                                        <div class="Sun"><br><i class="fa-thin fa-temperature-three-quarters"></i>
+                                            Real feel: <span class="real feel" id="realFeel"> </span>°<br><i
+                                                class="fas fa-cloud-moon" aria-hidden="true"></i>
+
+                                            <img class="daylight-icon" src="img/sunrise.png" alt="sunrise-image">
+                                            <span id="sunrise"></span> | <span id="sunset"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="toDo">
+                        <div class="titleToDo">Perfect weather for ...</div>
+                        <ul class="ideas">
+                            <li class="idea1" id="toDo1">Do smth fun</li>
+                            <li class="idea2" id="toDo2">Eat smth tasty</li>
+                            <li class="idea3" id="toDo3">Meet with friends</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="card" style="border-radius: 25px;">
+                    <div class="card-body p-4">
+
+                        <div id="demo3" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ul class="carousel-indicators mb-0">
+                                <li data-target="#demo3" data-slide-to="0"></li>
+                                <li data-target="#demo3" data-slide-to="1"></li>
+                                <li data-target="#demo3" data-slide-to="2" class="active"></li>
+                            </ul>
+
+
+                            <!-- WeatherForecast -->
+
+
+                            <div class="WeatherForecast">
+
+                                <div class="row">
+                                    <div class="col">
+                                        <div>
+                                            <div class="WeatherForecast-day">Thurs</div>
+                                            <img src="https://w7.pngwing.com/pngs/357/376/png-transparent-cloud-sunlight-sun-with-clouds-sun-illustration-computer-wallpaper-smiley-sky.png"
+                                                width="40" height="40">
+                                            <div class="WeatherForecast-temperatures"><span
+                                                    class="WeatherForecast-temperature-max">31°</span><span
+                                                    class="WeatherForecast-temperature-min">17°</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <div class="WeatherForecast-day">Fri</div><img
+                                                src="https://w7.pngwing.com/pngs/357/376/png-transparent-cloud-sunlight-sun-with-clouds-sun-illustration-computer-wallpaper-smiley-sky.png"
+                                                width="40" height="40">
+                                            <div class="WeatherForecast-temperatures"><span
+                                                    class="WeatherForecast-temperature-max">28°</span><span
+                                                    class="WeatherForecast-temperature-min">18°</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <div class="WeatherForecast-day">Sat</div><img
+                                                src="https://w7.pngwing.com/pngs/357/376/png-transparent-cloud-sunlight-sun-with-clouds-sun-illustration-computer-wallpaper-smiley-sky.png"
+                                                width="40" height="40">
+                                            <div class="WeatherForecast-temperatures"><span
+                                                    class="WeatherForecast-temperature-max">24°</span><span
+                                                    class="WeatherForecast-temperature-min">18°</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <div class="WeatherForecast-day">Sun</div><img
+                                                src="https://w7.pngwing.com/pngs/357/376/png-transparent-cloud-sunlight-sun-with-clouds-sun-illustration-computer-wallpaper-smiley-sky.png"
+                                                width="40" height="40">
+                                            <div class="WeatherForecast-temperatures"><span
+                                                    class="WeatherForecast-temperature-max">27°</span><span
+                                                    class="WeatherForecast-temperature-min">16°</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <div>
+                                            <div class="WeatherForecast-day">Mon</div><img
+                                                src="https://w7.pngwing.com/pngs/357/376/png-transparent-cloud-sunlight-sun-with-clouds-sun-illustration-computer-wallpaper-smiley-sky.png"
+                                                width="40" height="40">
+                                            <div class="WeatherForecast-temperatures"><span
+                                                    class="WeatherForecast-temperature-max">30°</span><span
+                                                    class="WeatherForecast-temperature-min">17°</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+                    </div>
+                    <script src="function/curDate.js"></script>
+                    <script src="function/curCity.js"></script>
+                    <script src="function/unit_temp.js"></script>
+                    <script src="function/weatherApi.js"></script>
+
+                    <script>
+                        search("Kyiv");
+                        /* function displayUserName(response) {
+                             // alert(response.data.address);
+                             response.data.forEach(user => { console.log(user.username); });
+                         }
+     
+     
+                         let apiUrl1 = "https://jsonplaceholder.typicode.com/users";
+                         axios.get(apiUrl1).then(displayUserName);*/
+
+                    </script>
+</body>
+
+</html>
