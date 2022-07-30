@@ -40,6 +40,8 @@ function showTemperature(response) {
   reelFeel.innerHTML = Math.round(feelsLike);
   sunRise.innerHTML = convertUnix(response.data.sys.sunrise);
   sunSet.innerHTML = convertUnix(response.data.sys.sunset);
+
+  getForecast(response.data.coord);
 }
 
 //axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);

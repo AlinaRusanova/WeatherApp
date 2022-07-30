@@ -42,5 +42,15 @@ function formatDate(unix) {
   return formattedDate;
 }
 
+function formatDateTwo(timeSpan) {
+  var date = new Date(timeSpan * 1000);
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let day = date.getDay();
+
+  return days[day];
+}
+
 let curDateSelecter = document.querySelector("#cur-date");
 //curDateSelecter.innerHTML = formatDate(curDate);

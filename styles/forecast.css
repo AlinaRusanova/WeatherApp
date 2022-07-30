@@ -1,13 +1,18 @@
 .WeatherForecast {
-  font-size: 13px;
+  font-size: 15px;
   margin: -40px 0 0;
   padding: 30px 18px;
   text-align: center;
+  font-family: bold;
+  height: 100px;
+}
+.WeatherForecast-day {
+  font-weight: 800;
 }
 
 .WeatherForecast-header {
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 900;
   margin: -21px 0 40px;
   padding-left: 18px;
   text-align: left;
@@ -25,4 +30,8 @@
 
 .card {
   background-image: url(https://i.pinimg.com/originals/34/94/e9/3494e9156926ea9d9e0d39d75d0df112.jpg);
+}
+
+.WeatherForecast-temperature-max {
+  font-weight: 700;
 }
