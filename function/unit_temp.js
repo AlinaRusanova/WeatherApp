@@ -1,17 +1,11 @@
-let temp_cel = 18;
-let max_cel = 23;
-let min_cel = 17;
-
-let temp_far = (temp_cel * 9) / 5 + 32;
-let max_far = (max_cel * 9) / 5 + 32;
-let min_far = (min_cel * 9) / 5 + 32;
-
 let celsius = document.querySelector("#celsius-link");
 let fahrenheit = document.querySelector("#fahrenheit-link");
 
 let mainTemp = document.querySelector("#mainTemp");
 let maxTemp = document.querySelector("#current-max-temperature");
 let minTemp = document.querySelector("#current-min-temperature");
+
+let mainIcon = document.querySelector("#main_icon");
 
 let humidity = document.querySelector("#humidity");
 let wind = document.querySelector("#wind");
@@ -21,16 +15,23 @@ let sunSet = document.querySelector("#sunset");
 
 function showCelsius(event) {
   event.preventDefault();
-  mainTemp.innerHTML = temp_cel;
-  maxTemp.innerHTML = max_cel;
-  minTemp.innerHTML = min_cel;
+  fahrenheit.classList.remove("unitActive");
+  celsius.classList.add("unitActive");
+  mainTemp.innerHTML = Math.round(celsiusMain);
+  maxTemp.innerHTML = Math.round(celsiusMax);
+  minTemp.innerHTML = Math.round(celsiusMin);
+  reelFeel.innerHTML = Math.round(feelsLike);
 }
 
 function showFahrenheit(event) {
   event.preventDefault();
-  mainTemp.innerHTML = Math.round(temp_far);
-  maxTemp.innerHTML = Math.round(max_far);
-  minTemp.innerHTML = Math.round(min_far);
+
+  celsius.classList.remove("unitActive");
+  fahrenheit.classList.add("unitActive");
+  mainTemp.innerHTML = Math.round((celsiusMain * 9) / 5 + 32);
+  maxTemp.innerHTML = Math.round((celsiusMax * 9) / 5 + 32);
+  minTemp.innerHTML = Math.round((celsiusMin * 9) / 5 + 32);
+  reelFeel.innerHTML = Math.round((feelsLike * 9) / 5 + 32);
 }
 
 celsius.addEventListener("mousedown", showCelsius);

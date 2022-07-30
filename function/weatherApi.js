@@ -1,6 +1,10 @@
 let apiKey = "1f8dafcd681189822cc60aba993259ca";
 
 let cityInpun1 = document.querySelector("#cityInput");
+let celsiusMain = null;
+let celsiusMax = null;
+let celsiusMin = null;
+let feelsLike = null;
 
 function convertUnix(unix) {
   var date = new Date(unix * 1000);
@@ -14,13 +18,26 @@ function showTemperature(response) {
   console.log(response.data);
   curCitySelected.innerHTML = response.data.name;
   curDateSelecter.innerHTML = formatDate(response.data.dt);
-  mainTemp.innerHTML = Math.round(response.data.main.temp);
-  maxTemp.innerHTML = Math.round(response.data.main.temp_max);
-  minTemp.innerHTML = Math.round(response.data.main.temp_min);
+
+  celsiusMain = response.data.main.temp;
+  celsiusMax = response.data.main.temp_max;
+  celsiusMin = response.data.main.temp_min;
+  feelsLike = response.data.main.feels_like;
+
+  mainTemp.innerHTML = Math.round(celsiusMain);
+  maxTemp.innerHTML = Math.round(celsiusMax);
+  minTemp.innerHTML = Math.round(celsiusMin);
+
+  mainIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+
+  mainIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 
   humidity.innerHTML = Math.round(response.data.main.humidity);
   wind.innerHTML = Math.round(response.data.wind.speed);
-  reelFeel.innerHTML = Math.round(response.data.main.feels_like);
+  reelFeel.innerHTML = Math.round(feelsLike);
   sunRise.innerHTML = convertUnix(response.data.sys.sunrise);
   sunSet.innerHTML = convertUnix(response.data.sys.sunset);
 }

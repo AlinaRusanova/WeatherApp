@@ -103,6 +103,7 @@ div {
 #main_icon {
   display: block;
   margin: 0 auto;
+  padding: 0;
 }
 
 .daylight-icon {

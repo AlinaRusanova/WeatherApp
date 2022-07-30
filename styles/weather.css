@@ -18,7 +18,11 @@ h2 {
   font-weight: bold;
 }
 .unitActive {
-  color: black;
+  color: rgb(37, 34, 34);
+}
+.unitActive:hover {
+  color: rgb(72, 77, 72);
+  text-decoration: none;
 }
 
 .toDo {

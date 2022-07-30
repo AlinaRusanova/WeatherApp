@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://kit.fontawesome.com/2dd74c60eb.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles/form.css" />
@@ -42,13 +43,12 @@
                         <div class="main-card my-4">
                             <div class="card-body py-0">
                                 <h2 class="card-title pt-3" id="cur-city"></h2>
-                                <h6 class="card-subtitle mb-4">
+                                <h6 class="card-subtitle mb-1">
                                     <div id="cur-date"></div>
-                                </h6><img id="main_icon"
-                                    src="https://free-png.ru/wp-content/uploads/2021/12/free-png.ru-110.png" width="125"
-                                    height="125"></img>
+                                </h6>
+                                <img id="main_icon" src="" alt="" width="165" height="165"></img>
 
-                                <br>
+
                                 <div class="main-card-degree">
                                     <div class="TemperatureDegree"><span class="temperature" id="mainTemp"></span> <a
                                             href="#" class="unitActive" id="celsius-link">°C</a><span class="unit">
@@ -59,11 +59,10 @@
 
 
 
-                                <h6 class="max-and-min-temperatures"><i class="fas fa-arrow-up" aria-hidden="true"></i>
+                                <h6 class="max-and-min-temperatures">
                                     ↑ High: <span class="current-max-temperature" id="current-max-temperature"><strong>
-                                        </strong></span>°<strong> |</strong><i class="fas fa-arrow-down"
-                                        aria-hidden="true"></i> ↓ Low: <span class="current-min-temperature"
-                                        id="current-min-temperature"><strong>
+                                        </strong></span>°<strong> |</strong> ↓ Low: <span
+                                        class="current-min-temperature" id="current-min-temperature"><strong>
                                         </strong></span>°</h6>
 
 
@@ -75,13 +74,12 @@
                                 <div class="row">
                                     <div class="col px-1 mx-2">
                                         <div class="WDescription"><br>Humidity:
-                                            <span id="humidity"></span>%<br>Wind: <span id="wind"></span> m/s
+                                            <span id="humidity"></span>%<br>Wind: <span id="wind"></span> km/h
                                         </div>
                                     </div>
                                     <div class="col px-0 mx-2">
-                                        <div class="Sun"><br><i class="fa-thin fa-temperature-three-quarters"></i>
-                                            Real feel: <span class="real feel" id="realFeel"> </span>°<br><i
-                                                class="fas fa-cloud-moon" aria-hidden="true"></i>
+                                        <div class="Sun"><br>
+                                            Real feel: <span class="real feel" id="realFeel"> </span>°<br>
 
                                             <img class="daylight-icon" src="img/sunrise.png" alt="sunrise-image">
                                             <span id="sunrise"></span> | <span id="sunset"></span>
