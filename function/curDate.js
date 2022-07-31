@@ -1,7 +1,11 @@
 let curDate = new Date();
 
-function formatDate(unix) {
-  var date = new Date(unix * 1000);
+function formatDate(date, timezone) {
+  let localOffsetInMs = date.getTimezoneOffset() * 60 * 1000;
+  let targetOffsetInMs = timezone * 1000;
+  let targetTimestamp = date.getTime() + localOffsetInMs + targetOffsetInMs;
+
+  let now = new Date(targetTimestamp);
 
   let days = [
     "Sunday",
@@ -28,12 +32,12 @@ function formatDate(unix) {
     "December",
   ];
 
-  let currentYear = date.getFullYear();
-  let currentDay = days[date.getDay()];
-  let currentMonth = months[date.getMonth()];
-  let currentDate = date.getDate();
-  let currentHours = "0" + date.getHours();
-  var currentMin = "0" + date.getMinutes();
+  let currentYear = now.getFullYear();
+  let currentDay = days[now.getDay()];
+  let currentMonth = months[now.getMonth()];
+  let currentDate = now.getDate();
+  let currentHours = "0" + now.getHours();
+  var currentMin = "0" + now.getMinutes();
 
   let formattedDate = `${currentDay}, ${currentMonth} ${currentDate}, ${currentYear} ${currentHours.substr(
     -2

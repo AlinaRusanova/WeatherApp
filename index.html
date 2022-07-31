@@ -79,6 +79,8 @@
                                     </div>
                                     <div class="col px-0 mx-2">
                                         <div class="Sun"><br>
+                                            <img class="daylight-icon" src="img/thermometer2.png"
+                                                alt="thermometer-image">
                                             Real feel: <span class="real feel" id="realFeel"> </span>°<br>
 
                                             <img class="daylight-icon" src="img/sunrise.png" alt="sunrise-image">
@@ -94,9 +96,9 @@
                     <div class="toDo">
                         <div class="titleToDo">Perfect weather for ...</div>
                         <ul class="ideas">
-                            <li class="idea1" id="toDo1">Do smth fun</li>
-                            <li class="idea2" id="toDo2">Eat smth tasty</li>
-                            <li class="idea3" id="toDo3">Meet with friends</li>
+                            <li class="idea1" id="toDo1"></li>
+                            <li class="idea2" id="toDo2"></li>
+                            <li class="idea3" id="toDo3"></li>
                         </ul>
                     </div>
                 </div>
@@ -120,9 +122,10 @@
                             <div class="WeatherForecast" id="forecast">
 
 
+
+
+
                             </div>
-
-
 
                         </div>
 
@@ -131,7 +134,8 @@
                 </div>
             </div>
             <br />
-            <div><a href="https://github.com/AlinaRusanova/WeatherApp" target="_blank">Open-source code</a> by Alina
+            <div><a href="https://github.com/AlinaRusanova/WeatherApp" target="_blank">Open-source code</a> by
+                Alina
                 Rusanova</div>
         </div>
 
@@ -140,8 +144,11 @@
         <script src="function/unit_temp.js"></script>
         <script src="function/weatherApi.js"></script>
         <script src="function/forecast.js"></script>
+        <script src="function/toDo.js"></script>
         <script>
             search("Kyiv");
+      //      toDo1ideas();
+
         //    displayForecast();
 
         </script>

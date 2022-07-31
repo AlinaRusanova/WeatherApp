@@ -8,8 +8,8 @@ let feelsLike = null;
 
 function convertUnix(unix) {
   var date = new Date(unix * 1000);
-  var hours = "0" + date.getHours();
-  var minutes = "0" + date.getMinutes();
+  var hours = "0" + date.getUTCHours();
+  var minutes = "0" + date.getUTCMinutes();
   var formattedTime = hours.substr(-2) + ":" + minutes.substr(-2);
   return formattedTime;
 }
@@ -17,7 +17,7 @@ function convertUnix(unix) {
 function showTemperature(response) {
   console.log(response.data);
   curCitySelected.innerHTML = response.data.name;
-  curDateSelecter.innerHTML = formatDate(response.data.dt);
+  curDateSelecter.innerHTML = formatDate(new Date(), response.data.timezone);
 
   celsiusMain = response.data.main.temp;
   celsiusMax = response.data.main.temp_max;
@@ -38,10 +38,17 @@ function showTemperature(response) {
   humidity.innerHTML = Math.round(response.data.main.humidity);
   wind.innerHTML = Math.round(response.data.wind.speed);
   reelFeel.innerHTML = Math.round(feelsLike);
-  sunRise.innerHTML = convertUnix(response.data.sys.sunrise);
-  sunSet.innerHTML = convertUnix(response.data.sys.sunset);
+  sunRise.innerHTML = convertUnix(
+    response.data.sys.sunrise + response.data.timezone
+  );
+  sunSet.innerHTML = convertUnix(
+    response.data.sys.sunset + response.data.timezone
+  );
 
   getForecast(response.data.coord);
+  document.getElementById("toDo1").innerHTML = toDo1ideas();
+  document.getElementById("toDo2").innerHTML = toDo2ideas();
+  document.getElementById("toDo3").innerHTML = toDo3ideas();
 }
 
 //axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
