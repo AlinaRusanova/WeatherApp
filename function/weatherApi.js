@@ -15,6 +15,9 @@ function convertUnix(unix) {
 }
 
 function showTemperature(response) {
+  fahrenheit.classList.remove("unitActive");
+  celsius.classList.add("unitActive");
+
   console.log(response.data);
   curCitySelected.innerHTML = response.data.name;
   curDateSelecter.innerHTML = formatDate(new Date(), response.data.timezone);
@@ -49,6 +52,9 @@ function showTemperature(response) {
   document.getElementById("toDo1").innerHTML = toDo1ideas();
   document.getElementById("toDo2").innerHTML = toDo2ideas();
   document.getElementById("toDo3").innerHTML = toDo3ideas();
+
+  fahrenheit.addEventListener("click", showFahrenheit);
+  celsius.removeEventListener("click", showCelsius);
 }
 
 //axios.get(`${apiUrl}&appid=${apiKey}`).then(showTemperature);
